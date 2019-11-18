@@ -13,7 +13,6 @@ setup(
   classifiers=[
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
-    'Topic :: Software Development :: Configuration and Logging Tools',
     'License :: OSI Approved :: MIT License',
     'Programming Language :: Python :: 3.7',
   ],
