@@ -1,13 +1,12 @@
 from distutils.core import setup
 
 setup(
-  name = 'datacoco-core',
-  packages = ['datacoco-core'],
+  name = 'datacoco_core',
+  packages = ['datacoco_core'],
   version = '0.1.0',
   license='MIT',
   description = 'Core features of common code utility',
-  author = 'Paul Singman',
-  author_email = 'paul.singman@equinox.com',
+  author = 'Equinox Fitness',
   url = 'https://github.com/equinoxfitness/datacoco-core',
   download_url = 'https://github.com/equinoxfitness/datacoco-core/archive/v-0.1.0.tar.gz',
   keywords = ['helper', 'config', 'logging', 'common'],
