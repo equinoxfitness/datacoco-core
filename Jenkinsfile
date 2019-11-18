@@ -20,7 +20,7 @@ pipeline{
     stages{
         stage('Coverage to Codacy'){
             steps {
-                slackSend (color: 'good', message: "datacoco-core_pypi_pipeline_${GIT_BRANCH} - Starting build #${BUILD_NUMBER}. (<${env.BUILD_URL}|Open>)")
+                //slackSend (color: 'good', message: "datacoco-core_pypi_pipeline_${GIT_BRANCH} - Starting build #${BUILD_NUMBER}. (<${env.BUILD_URL}|Open>)")
 
                 echo "coverage"
            
@@ -67,11 +67,11 @@ pipeline{
     post {
         failure {
             echo "fail"
-            slackSend (color: 'danger', message: "@here datacoco-core_pypi_pipeline_${GIT_BRANCH} - Build #${BUILD_NUMBER} Failed. (<${env.BUILD_URL}|Open>)")
+            //slackSend (color: 'danger', message: "@here datacoco-core_pypi_pipeline_${GIT_BRANCH} - Build #${BUILD_NUMBER} Failed. (<${env.BUILD_URL}|Open>)")
         }
         success {
             echo "good"
-            slackSend (color: 'good', message: "datacoco-core_pypi_pipeline_${GIT_BRANCH} - Build #${BUILD_NUMBER} Success. (<${env.BUILD_URL}|Open>)")
+            //slackSend (color: 'good', message: "datacoco-core_pypi_pipeline_${GIT_BRANCH} - Build #${BUILD_NUMBER} Success. (<${env.BUILD_URL}|Open>)")
         }
         always {
             echo 'Updating folder permissions.'

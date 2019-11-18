@@ -11,7 +11,6 @@ setup(
   url = 'https://github.com/equinoxfitness/datacoco-core',
   download_url = 'https://github.com/equinoxfitness/datacoco-core/archive/v-0.1.0.tar.gz',
   keywords = ['helper', 'config', 'logging', 'common'],
-  install_requires=[],
   classifiers=[
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
