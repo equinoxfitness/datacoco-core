@@ -109,4 +109,4 @@ etl.cfg
 etl-prod.cfg
 etl-qa.cfg
 .vscode/
-
+.flake8

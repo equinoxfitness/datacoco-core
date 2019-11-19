@@ -14,11 +14,12 @@ class Logger:
     """
     generic logger class
     """
+
     def __init__(self, logname=None, project_name=None):
         """
         :param level:
         :param project_name: if provided the logger will put its
-                             log files in a subdirectory named after the project
+            log files in a subdirectory named after the project
         :return:
         """
         parent = inspect.stack()[1]
@@ -29,22 +30,22 @@ class Logger:
         else:
             filename = path_filename
         if project_name:
-            log_path = 'logs/' + project_name + '/' + filename
+            log_path = "logs/" + project_name + "/" + filename
         else:
-            log_path = 'logs/' + filename
+            log_path = "logs/" + filename
 
         if project_name:
-            if not os.path.exists('logs/' + project_name + '/'):
-                os.makedirs('logs/' + project_name + '/')
+            if not os.path.exists("logs/" + project_name + "/"):
+                os.makedirs("logs/" + project_name + "/")
         else:
-            if not os.path.exists('logs/'):
-                os.makedirs('logs/')
+            if not os.path.exists("logs/"):
+                os.makedirs("logs/")
 
         log_name = datetime.now().strftime(log_path + "-%Y%m%d-%H%M%S.log")
         l = logging.getLogger("test")
-        l.setLevel('DEBUG')
+        l.setLevel("DEBUG")
         l_fh = logging.FileHandler(log_name)
-        l_format = logging.Formatter('%(asctime)s %(message)s')
+        l_format = logging.Formatter("%(asctime)s %(message)s")
         l_fh.setFormatter(l_format)
         l.addHandler(l_fh)
         self.logger = l
@@ -58,7 +59,7 @@ class Logger:
         """
         self.l(msg, level=logging.ERROR)
 
-    def l_exception(self, msg='general exception'):
+    def l_exception(self, msg="general exception"):
         """
         logging method will log as error with full traceback
         :param msg:
@@ -67,7 +68,7 @@ class Logger:
         """
         etype, ex, tb = sys.exc_info()
         tb_s = traceback.format_exception(etype, ex, tb)
-        msg = msg + ':\n' + ' '.join(tb_s)
+        msg = msg + ":\n" + " ".join(tb_s)
         self.l(msg, level=logging.ERROR)
 
     def l(self, msg, level=logging.INFO):
@@ -82,7 +83,7 @@ class Logger:
 
         :raises: RuntimeError if log level us unknown.
         """
-        ## only print 'DEBUG' messages if overall log level is set to debug
+        # only print 'DEBUG' messages if overall log level is set to debug
 
         if level is logging.DEBUG:
             self.logger.debug(msg)
@@ -113,4 +114,6 @@ class Logger:
             sys.__excepthook__(exc_type, exc_value, exc_traceback)
             return
 
-        self.logger.error("Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback))
+        self.logger.error(
+            "Uncaught exception", exc_info=(exc_type, exc_value, exc_traceback)
+        )

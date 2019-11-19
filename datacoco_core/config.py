@@ -5,6 +5,7 @@ import base64
 from configparser import ConfigParser
 import os
 
+
 def find_config_path(file_name, search_root):
     """
     Given the config filename, and a root to start
@@ -19,7 +20,8 @@ def find_config_path(file_name, search_root):
     branches = [
         os.path.abspath(branch_name)
         for branch_name in this_level
-        if os.path.isdir(os.path.abspath(branch_name))]
+        if os.path.isdir(os.path.abspath(branch_name))
+    ]
     for branch in branches:
         found = find_config_path(file_name, branch)
         if found:
@@ -27,7 +29,7 @@ def find_config_path(file_name, search_root):
     return None
 
 
-def Config(conf_path='etl.cfg'):
+def Config(conf_path="etl.cfg"):
     """Reads config file and returns a dictionary of config objects.
 
     :param conf_path: Absolute path to configuration file.
@@ -40,7 +42,7 @@ def Config(conf_path='etl.cfg'):
         dictionary[section] = {}
         for option in config.options(section):
             val = config.get(section, option)
-            if str(option).lower() in ('pwd', 'password'):
-                val = str(base64.b64decode(val), 'utf-8')
+            if str(option).lower() in ("pwd", "password"):
+                val = str(base64.b64decode(val), "utf-8")
             dictionary[section][option] = val
     return dictionary
