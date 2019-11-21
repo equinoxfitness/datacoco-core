@@ -4,7 +4,7 @@ Equinox Common Code Utility for Python 3 with minimal dependencies and easy inst
 
 Includes utilities for logging and config files
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d16600d5b116418496f6b98b9e02d77b)](https://www.codacy.com/manual/equinoxfitness/datacoco-core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-core&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d16600d5b116418496f6b98b9e02d77b)](https://www.codacy.com/manual/equinoxfitness/datacoco-core?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-core&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d16600d5b116418496f6b98b9e02d77b)](https://www.codacy.com/manual/equinoxfitness/datacoco-core?utm_source=github.com&utm_medium=referral&utm_content=equinoxfitness/datacoco-core&utm_campaign=Badge_Coverage)
 ## Installing the latest version
 To install the latest version, use pip:
 ```
