@@ -29,7 +29,7 @@ def find_config_path(file_name, search_root):
     return None
 
 
-def Config(conf_path="etl.cfg"):
+def config(conf_path="etl.cfg"):
     """Reads config file and returns a dictionary of config objects.
 
     :param conf_path: Absolute path to configuration file.
