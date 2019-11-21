@@ -29,7 +29,7 @@ cat logs/test.py-20190827-135736.log
 Optionally, parameters `logname` and `project_name` can be passed on class instantiation to
 customize the logfile name, and logfile path respectively.
 
-## Config
+## config
 
 The config module is a lightweight wrapper around the configparser module. It converts INI files to a dictionary object.
 By default, the Config class will look for a file named in `etl.cfg` in the project root.
@@ -41,8 +41,8 @@ answer_to_the_universe=42
 ```
 This credential can be accessed by the following example code:
 ```
-from datacoco_core.config import Config
-c = Config()
+from datacoco_core.config import config
+c = config()
 c['secret1']['answer_to_the_universe']
 42
 ```
