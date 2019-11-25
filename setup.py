@@ -6,7 +6,7 @@ setup(
     version="0.1.0",
     license="MIT",
     description="Core features of common code utility",
-    long_description=open("README.md").read(),
+    long_description=open("README.rst").read(),
     long_description_content_type="text/markdown",
     author="Equinox Fitness",
     url="https://github.com/equinoxfitness/datacoco-core",
