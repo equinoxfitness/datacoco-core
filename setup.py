@@ -1,13 +1,28 @@
-from distutils.core import setup
+#!/usr/bin/env python
+
+"""
+setuptools install script.
+"""
+import os
+import re
+from setuptools import setup
+
+
+def get_version():
+    version_file = open(
+        os.path.join("datacoco_secretsmanager", "__version__.py")
+    )
+    version_contents = version_file.read()
+    return re.search('__version__ = "(.*?)"', version_contents).group(1)
+
 
 setup(
     name="datacoco_core",
     packages=["datacoco_core"],
-    version="0.1.0",
+    version=get_version(),
     license="MIT",
     description="Core features of common code utility",
     long_description=open("README.rst").read(),
-    long_description_content_type="text/markdown",
     author="Equinox Fitness",
     url="https://github.com/equinoxfitness/datacoco-core",
     download_url="https://github.com/equinoxfitness/datacoco-core/archive/v-0.1.0.tar.gz",
@@ -15,7 +30,8 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
+        "Natural Language :: English",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.6",
     ],
 )
