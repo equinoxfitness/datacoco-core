@@ -9,9 +9,7 @@ from setuptools import setup
 
 
 def get_version():
-    version_file = open(
-        os.path.join("datacoco_secretsmanager", "__version__.py")
-    )
+    version_file = open(os.path.join("datacoco_core", "__version__.py"))
     version_contents = version_file.read()
     return re.search('__version__ = "(.*?)"', version_contents).group(1)
 
