@@ -19,11 +19,10 @@ setup(
     packages=["datacoco_core"],
     version=get_version(),
     license="MIT",
-    description="Core features of common code utility",
+    description="Data common code for core features by Equinox",
     long_description=open("README.rst").read(),
     author="Equinox Fitness",
     url="https://github.com/equinoxfitness/datacoco-core",
-    download_url="https://github.com/equinoxfitness/datacoco-core/archive/v-0.1.0.tar.gz",
     keywords=["helper", "config", "logging", "common"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
