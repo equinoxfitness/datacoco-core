@@ -42,13 +42,13 @@ class Logger:
                 os.makedirs("logs/")
 
         log_name = datetime.now().strftime(log_path + "-%Y%m%d-%H%M%S.log")
-        l = logging.getLogger("test")
-        l.setLevel("DEBUG")
+        log = logging.getLogger("test")
+        log.setLevel("DEBUG")
         l_fh = logging.FileHandler(log_name)
         l_format = logging.Formatter("%(asctime)s %(message)s")
         l_fh.setFormatter(l_format)
-        l.addHandler(l_fh)
-        self.logger = l
+        log.addHandler(l_fh)
+        self.logger = log
 
     def l_error(self, msg):
         """
@@ -57,7 +57,7 @@ class Logger:
         :param string:
         :return:
         """
-        self.l(msg, level=logging.ERROR)
+        self.log_message(msg, level=logging.ERROR)
 
     def l_exception(self, msg="general exception"):
         """
@@ -69,9 +69,9 @@ class Logger:
         etype, ex, tb = sys.exc_info()
         tb_s = traceback.format_exception(etype, ex, tb)
         msg = msg + ":\n" + " ".join(tb_s)
-        self.l(msg, level=logging.ERROR)
+        self.log_message(msg, level=logging.ERROR)
 
-    def l(self, msg, level=logging.INFO):
+    def log_message(self, msg, level=logging.INFO):
         """
         Write a log message. Utilizes (default) '_logger'.
 
@@ -96,7 +96,7 @@ class Logger:
         else:
             pass  # raise RuntimeError("Log level: %s not supported" % level)
 
-    def d(self, msg):
+    def debug_level(self, msg):
         """
         Write a log message with level DEBUG.
 
@@ -104,7 +104,7 @@ class Logger:
         :type msg: string
         :return:
         """
-        self.l(msg, level=logging.DEBUG)
+        self.log_message(msg, level=logging.DEBUG)
 
     def handle_exception(self, exc_type, exc_value, exc_traceback):
         """
