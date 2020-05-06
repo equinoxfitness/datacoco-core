@@ -15,7 +15,7 @@ class Logger:
     generic logger class
     """
 
-    def __init__(self, logname=None, project_name=None):
+    def __init__(self, logname=None, project_name=None, write_log: bool = False):
         """
         :param level:
         :param project_name: if provided the logger will put its
@@ -29,26 +29,31 @@ class Logger:
             filename = logname
         else:
             filename = path_filename
+
+
         if project_name:
             log_path = "logs/" + project_name + "/" + filename
         else:
             log_path = "logs/" + filename
 
-        if project_name:
-            if not os.path.exists("logs/" + project_name + "/"):
-                os.makedirs("logs/" + project_name + "/")
-        else:
-            if not os.path.exists("logs/"):
-                os.makedirs("logs/")
+        l = logging.getLogger("test")
+        l.setLevel("DEBUG")
 
-        log_name = datetime.now().strftime(log_path + "-%Y%m%d-%H%M%S.log")
-        log = logging.getLogger("test")
-        log.setLevel("DEBUG")
-        l_fh = logging.FileHandler(log_name)
-        l_format = logging.Formatter("%(asctime)s %(message)s")
-        l_fh.setFormatter(l_format)
-        log.addHandler(l_fh)
-        self.logger = log
+        if write_log:
+            if project_name:
+                if not os.path.exists("logs/" + project_name + "/"):
+                    os.makedirs("logs/" + project_name + "/")
+            else:
+                if not os.path.exists("logs/"):
+                    os.makedirs("logs/")
+
+            log_name = datetime.now().strftime(log_path + "-%Y%m%d-%H%M%S.log")
+            l_fh = logging.FileHandler(log_name)
+            l_format = logging.Formatter("%(asctime)s %(message)s")
+            l_fh.setFormatter(l_format)
+            l.addHandler(l_fh)
+
+        self.logger = l
 
     def l_error(self, msg):
         """
