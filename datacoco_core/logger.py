@@ -15,7 +15,7 @@ class Logger:
     generic logger class
     """
 
-    def __init__(self, logname=None, project_name=None, write_log: bool = False):
+    def __init__(self, logname=None, project_name=None, log_to_file=True, log_dir='logs'):
         """
         :param level:
         :param project_name: if provided the logger will put its
@@ -32,20 +32,20 @@ class Logger:
 
 
         if project_name:
-            log_path = "logs/" + project_name + "/" + filename
+            log_path = log_dir + "/" + project_name + "/" + filename
         else:
-            log_path = "logs/" + filename
+            log_path = log_dir + "/" + filename
 
         l = logging.getLogger("test")
         l.setLevel("DEBUG")
 
-        if write_log:
+        if log_to_file:
             if project_name:
-                if not os.path.exists("logs/" + project_name + "/"):
-                    os.makedirs("logs/" + project_name + "/")
+                if not os.path.exists(log_dir + "/" + project_name + "/"):
+                    os.makedirs(log_dir + "/" + project_name + "/")
             else:
-                if not os.path.exists("logs/"):
-                    os.makedirs("logs/")
+                if not os.path.exists(log_dir + "/"):
+                    os.makedirs(log_dir + "/")
 
             log_name = datetime.now().strftime(log_path + "-%Y%m%d-%H%M%S.log")
             l_fh = logging.FileHandler(log_name)
